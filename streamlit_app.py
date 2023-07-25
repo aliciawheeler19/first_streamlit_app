@@ -28,7 +28,7 @@ streamlit.dataframe(fruits_to_show)
 streamlit.header("Fruityvice Fruit Advice!")
 
 # Textbox to ask which fruit the user is looking for
-fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+fruit_choice = streamlit.text_input('What fruit would you like information about?')
 # Screen text to show what the user asked for
 streamlit.write('The user entered ', fruit_choice)
 
