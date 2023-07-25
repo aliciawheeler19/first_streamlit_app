@@ -29,8 +29,8 @@ streamlit.header("Fruityvice Fruit Advice!")
 
 # Adding the Fruityvice API to the Streamlit App
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response.json())
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
+# showed the stream of raw data on the screen: streamlit.text(fruityvice_response.json())
 
 # import the data from fruityvice into a table
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
