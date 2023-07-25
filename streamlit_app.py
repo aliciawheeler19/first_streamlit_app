@@ -27,6 +27,11 @@ streamlit.dataframe(fruits_to_show)
 # Adding the header for the fruityvice api response 
 streamlit.header("Fruityvice Fruit Advice!")
 
+# Textbox to ask which fruit the user is looking for
+fruit_choice = streamlit.text_input('What fruit would you like information about?','Kiwi')
+# Screen text to show what the user asked for
+streamlit.write('The user entered ', fruit_choice)
+
 # Adding the Fruityvice API to the Streamlit App
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
