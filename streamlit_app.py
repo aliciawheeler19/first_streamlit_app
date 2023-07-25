@@ -30,4 +30,4 @@ streamlit.header("Fruityvice Fruit Advice!")
 # Adding the Fruityvice API to the Streamlit App
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response)
+streamlit.text(fruityvice_response.json())
