@@ -34,7 +34,7 @@ streamlit.write('The user entered ', fruit_choice)
 
 # Adding the Fruityvice API to the Streamlit App
 import requests
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # showed the stream of raw data on the screen: streamlit.text(fruityvice_response.json())
 
 # import the data from fruityvice into a table
