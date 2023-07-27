@@ -62,9 +62,6 @@ except URLError as e:
 # creates a view for the table on the page
 #streamlit.dataframe(fruityvice_normalized)
 
-# doesn't run anything past here
-#streamlit.stop()
-
 # New Code
 streamlit.header("The fruit load list contains:")
 # Snowflake related function
@@ -79,6 +76,8 @@ if streamlit.button('Get Fruit Load List'):
   my_data_rows = get_fruit_load_list()
   streamlit.dataframe(my_data_rows)
 
+# doesn't run anything past here
+streamlit.stop()
 
 # Adding in the Snowflake connector to the streamlit app
 # my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
