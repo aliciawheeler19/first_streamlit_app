@@ -53,7 +53,7 @@ streamlit.dataframe(my_data_rows)
 
 # Add data into snowflake table
 # Textbox to ask which fruit the user is looking for
-add_my_fruit = streamlit.text_input('What fruit would you like to add?', 'jackfruit')
+add_my_fruit = streamlit.text_input('What fruit would you like to add?')
 my_cur.execute("insert into fruit_load_list values (" + add_my_fruit + ");" )
 my_data_rows = my_cur.fetchall()
 # Screen text to show what the user asked for
