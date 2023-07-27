@@ -1,5 +1,9 @@
 # using just streamlit
 import streamlit
+import pandas
+import requests
+import snowflake.connector
+from urllib.error import URLError
 
 streamlit.title('My Parents New Healthy Diner')
 
@@ -13,7 +17,6 @@ streamlit.header('🍌🥭 Build Your Own Fruit Smoothie 🥝🍇')
 
 
 # adding in python
-import pandas
 my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
 my_fruit_list = my_fruit_list.set_index('Fruit')
 
@@ -33,7 +36,6 @@ fruit_choice = streamlit.text_input('What fruit would you like information about
 streamlit.write('The user entered ', fruit_choice)
 
 # Adding the Fruityvice API to the Streamlit App
-import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # showed the stream of raw data on the screen: streamlit.text(fruityvice_response.json())
 
@@ -42,8 +44,10 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # creates a view for the table on the page
 streamlit.dataframe(fruityvice_normalized)
 
+# doesn't run anything past here
+streamlit.stop()
+
 # Adding in the Snowflake connector to the streamlit app
-import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT * from fruit_load_list")
